@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "powerball-suite"
+version = "0.1.0"
+description = "CLI + library for powerball analytics"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    {name = "Robert Kelly", email = "robertkellydc@gmail.com"}
+]
+
+[project.optional_dependencies]
+dev = [
+    "pytest",
+    "black",
+    "ruff",
+    "jupyter",
+    "matplotlib",
+    "ipython"
+    "pandas",
+    "numpy",
+]
+
+[tools.setuptools]
+package-dir = {"" = "src"}
+packages = ["powerball_suite]   

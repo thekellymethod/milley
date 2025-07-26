@@ -1,0 +1,25 @@
+import pandas as pd
+
+# Change the filename below if yours is different
+csv_file = "powerball_draws.csv"
+
+# Read the CSV that you have open in VS Code
+df = pd.read_csv(csv_file)
+
+# Keep only the columns that correspond to the six white balls + Powerball
+# Adjust if your column names differ
+cols = ["Num1", "Num2", "Num3", "Num4", "Num5", "PowerBall"]
+
+# Build one frequency table where
+#   * the index is the ball number (1‑69 or 1‑26 for PB)
+#   * each column is the position it appeared in
+freq = (
+    pd.concat(
+        {c: df[c].value_counts() for c in cols}, axis=1, sort=True
+    )
+    .fillna(0)
+    .astype(int)
+    .sort_index()
+)
+
+import ace_tools as tools; tools.display_dataframe_to_user("Draw‑position frequencies", freq)
