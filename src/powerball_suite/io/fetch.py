@@ -6,9 +6,12 @@ import pandas as pd
 import requests
 from .schema import DrawRow, DATA_HOME
 
+__all__ = ["DrawRow"]
+
 SOURCE_URL = (
     "https://www.powerball.com/lottery/powerball-draw-results",
     "https://www.texaslottery.com/export/sites/lottery/Games/Powerball/Results/Powerball_results.html"
+    "powerball_draws.csv"
 )
 
 def fetch_raw() -> pd.DataFrame:
